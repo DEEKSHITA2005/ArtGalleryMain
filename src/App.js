@@ -27,7 +27,7 @@ function App() {
   const [userName, setUserName] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  axios.defaults.baseURL = 'http://localhost:8080/api';
+  axios.defaults.baseURL = 'artgallerylogin-production.up.railway.app/api';
 
   useEffect(() => {
     const email = localStorage.getItem('email');
