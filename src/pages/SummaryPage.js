@@ -15,7 +15,7 @@ const SummaryPage = ({ orderNumber }) => {
       const imagesMap = {};
       for (const item of cartItems) {
         try {
-          const response = await fetch(`http://localhost:8081/api/artworks/${item.id}/image`);
+          const response = await fetch(`artsbackend.railway.internal/api/artworks/${item.id}/image`);
           if (response.ok) {
             const blob = await response.blob();
             imagesMap[item.id] = URL.createObjectURL(blob); // Convert blob to object URL
