@@ -9,7 +9,7 @@ const AdminDashboard = () => {
       title: "Manage Users",
       value: 0,
       color: "#00bcd4",
-      api: "http://localhost:8080/api/users", // Correct API URL for users
+      api: "artgallerylogin-production.up.railway.app/api/users", // Correct API URL for users
       details: [],
     },
     {
@@ -17,7 +17,7 @@ const AdminDashboard = () => {
       title: "Manage Artworks",
       value: 0,
       color: "#673ab7",
-      api: "http://localhost:8081/api/artworks", // Correct API URL for artworks
+      api: "artsbackend.railway.internal/api/artworks", // Correct API URL for artworks
       details: [],
     },
     {
@@ -25,7 +25,7 @@ const AdminDashboard = () => {
       title: "Total Revenue",
       value: 0,
       color: "#4caf50",
-      api: "http://localhost:8084/api/cart", // Backend API for total cart items
+      api: "backendart3-production.up.railway.app/api/cart", // Backend API for total cart items
       details: [],
     },
     {
@@ -33,7 +33,7 @@ const AdminDashboard = () => {
       title: "Total Orders",
       value: 0,
       color: "red",
-      api: "http://localhost:8081/api/artworks", // Backend API for total cart items
+      api: "artsbackend.railway.internal/api/artworks", // Backend API for total cart items
       details: [],
     },
   ]);
@@ -69,7 +69,7 @@ const AdminDashboard = () => {
   // Handle delete user
   const handleDeleteUser = async (userId) => {
     try {
-      await axios.delete(`http://localhost:8080/api/users/${userId}`);
+      await axios.delete(`artgallerylogin-production.up.railway.app/api/users/${userId}`);
       const updatedStats = [...dashboardStats];
       updatedStats[0].details = updatedStats[0].details.filter(
         (user) => user.id !== userId
@@ -84,7 +84,7 @@ const AdminDashboard = () => {
   // Handle delete artwork
   const handleDeleteArtwork = async (artworkId) => {
     try {
-      await axios.delete(`http://localhost:8081/api/artworks/${artworkId}`);
+      await axios.delete(`artsbackend.railway.internal/api/artworks/${artworkId}`);
       const updatedStats = [...dashboardStats];
       updatedStats[1].details = updatedStats[1].details.filter(
         (artwork) => artwork.id !== artworkId
@@ -99,7 +99,7 @@ const AdminDashboard = () => {
   // Handle delete cart item
   const handleDeleteCartItem = async (itemId) => {
     try {
-      await axios.delete(`http://localhost:8084/api/cart/${itemId}`);
+      await axios.delete(`backendart3-production.up.railway.app/api/cart/${itemId}`);
       const updatedStats = [...dashboardStats];
       updatedStats[2].details = updatedStats[2].details.filter(
         (item) => item.id !== itemId
