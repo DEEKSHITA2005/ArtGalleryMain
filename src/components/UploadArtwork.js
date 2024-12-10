@@ -38,7 +38,7 @@ const UploadArtwork = () => {
     formData.append('image', image);
 
     try {
-      const response = await axios.post('artsbackend.railway.internal/upload', formData, {
+      const response = await axios.post('artsbackend.railway.internal/api/artworks/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
