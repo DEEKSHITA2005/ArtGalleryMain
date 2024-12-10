@@ -7,7 +7,7 @@ const Sculptures = () => {
 
   useEffect(() => {
     // Fetch sculptures data from the backend
-    fetch('http://localhost:8081/api/artworks/category/Sculptures')
+    fetch('artsbackend.railway.internal/api/artworks/category/Sculptures')
       .then((response) => {
         if (response.ok) {
           return response.json();
