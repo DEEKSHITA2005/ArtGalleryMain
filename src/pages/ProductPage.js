@@ -10,13 +10,13 @@ const ProductPage = ({ onAddToCart, cartItems = [] }) => {
 
   useEffect(() => {
     // Fetch artwork details
-    fetch(`http://localhost:8081/api/artworks/${id}`)
+    fetch(`artsbackend.railway.internal/api/artworks/${id}`)
       .then((response) => response.json())
       .then((data) => setArtwork(data))
       .catch((error) => console.error('Error fetching artwork details:', error));
 
     // Fetch artwork image
-    fetch(`http://localhost:8081/api/artworks/${id}/image`)
+    fetch(`artsbackend.railway.internal/api/artworks/${id}/image`)
       .then((response) => {
         if (response.ok) return response.blob();
         throw new Error('Failed to fetch image');
