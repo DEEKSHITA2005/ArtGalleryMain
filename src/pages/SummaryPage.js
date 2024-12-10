@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/SummaryPage.css';
 
 const SummaryPage = ({ orderNumber }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const cartItems = location.state?.cartItems || [];
+
+  // Memoize cartItems to prevent unnecessary recomputations and dependency issues
+  const cartItems = useMemo(() => location.state?.cartItems || [], [location.state]);
   const [images, setImages] = useState({}); // Store fetched images
 
   useEffect(() => {
@@ -30,11 +32,29 @@ const SummaryPage = ({ orderNumber }) => {
     if (cartItems.length > 0) {
       fetchImages();
     }
-  }, [cartItems]);
+  }, [cartItems]); // Depend on memoized cartItems
 
+  // Calculate the total price of all items in the cart
   const calculateTotal = () => {
-    return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
+    return cartItems
+      .reduce((acc, item) => acc + item.price * item.quantity, 0)
+      .toFixed(2);
   };
+
+  // Handle case where there are no items in the cart
+  if (cartItems.length === 0) {
+    return (
+      <div className="summary-container">
+        <div className="summary-card">
+          <h1>No Items in Order</h1>
+          <p>Please add items to your cart and complete an order to see a summary.</p>
+          <button className="back-home-button" onClick={() => navigate('/')}>
+            Back to Home
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="summary-container">
@@ -49,6 +69,15 @@ const SummaryPage = ({ orderNumber }) => {
         <div className="order-summary">
           <h2>Order Summary</h2>
           <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
             <tbody>
               {cartItems.map((item) => (
                 <tr key={item.id}>
@@ -59,10 +88,10 @@ const SummaryPage = ({ orderNumber }) => {
                       className="summary-item-image"
                     />
                   </td>
-                  <td>
-                    <p>{item.title}</p>
-                  </td>
+                  <td>{item.title}</td>
                   <td>₹ {item.price.toFixed(2)}</td>
+                  <td>{item.quantity}</td>
+                  <td>₹ {(item.price * item.quantity).toFixed(2)}</td>
                 </tr>
               ))}
             </tbody>

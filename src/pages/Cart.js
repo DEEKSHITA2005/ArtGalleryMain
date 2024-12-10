@@ -2,14 +2,14 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Cart.css';
 import axios from 'axios';
-import { init, sendForm } from 'emailjs-com';
+import { sendForm } from 'emailjs-com'; // Removed 'init'
 
 const Cart = ({ cartItems, isAuthenticated, userName, email }) => {
   const [images, setImages] = useState({});
   const [loadingImages, setLoadingImages] = useState(false);
   const [loadingOrder, setLoadingOrder] = useState(false);
   const navigate = useNavigate();
-  const form = useRef(); // Use this to bind the form for EmailJS
+  const form = useRef();
 
   // Fetch images for cart items
   useEffect(() => {
@@ -62,7 +62,7 @@ const Cart = ({ cartItems, isAuthenticated, userName, email }) => {
         price: item.price,
         quantity: item.quantity,
       })),
-      totalValue: parseFloat(calculateSubtotal()), // Ensure the value is a number
+      totalValue: parseFloat(calculateSubtotal()),
     };
 
     try {
@@ -74,23 +74,6 @@ const Cart = ({ cartItems, isAuthenticated, userName, email }) => {
           'Content-Type': 'application/json',
         },
       });
-
-      // Generate email content
-      const orderDetails = `
-        Thank you for your purchase, ${userName}!
-
-        Order Details:
-        Order Total: $${calculateSubtotal()}
-        Items:
-        ${cartItems
-          .map(
-            (item) =>
-              `- ${item.title} | Quantity: ${item.quantity} | Price: $${item.price.toFixed(2)}`
-          )
-          .join('\n')}
-
-        Your order will be shipped soon!
-      `;
 
       // Send email using EmailJS
       sendForm(

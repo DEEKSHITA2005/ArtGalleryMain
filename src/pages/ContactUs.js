@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { init, sendForm } from 'emailjs-com';
+import {  sendForm } from 'emailjs-com';
 import '../styles/ContactUs.css'; // Ensure this file contains your CSS for the component
 
 const ContactUs = () => {

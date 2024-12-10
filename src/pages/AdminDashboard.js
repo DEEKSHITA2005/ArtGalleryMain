@@ -41,29 +41,30 @@ const AdminDashboard = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState({ title: "", details: [] });
 
-  // Fetch data for all dashboard stats on mount
-  useEffect(() => {
-    const fetchData = async () => {
-      const updatedStats = await Promise.all(
-        dashboardStats.map(async (stat) => {
-          try {
-            const response = await axios.get(stat.api);
-            return {
-              ...stat,
-              value: response.data.total || response.data.length || 0, // Use total or array length
-              details: Array.isArray(response.data) ? response.data : response.data.items || [], // Ensure details is always an array
-            };
-          } catch (error) {
-            console.error(`Error fetching data for ${stat.title}:`, error);
-            return { ...stat, value: 0, details: [] }; // Fallback in case of an error
-          }
-        })
-      );
-      setDashboardStats(updatedStats);
-    };
+  // Fetch dashboard stats
+  const fetchDashboardStats = async () => {
+    const updatedStats = await Promise.all(
+      dashboardStats.map(async (stat) => {
+        try {
+          const response = await axios.get(stat.api);
+          return {
+            ...stat,
+            value: response.data.total || response.data.length || 0, // Use total or array length
+            details: Array.isArray(response.data) ? response.data : response.data.items || [], // Ensure details is always an array
+          };
+        } catch (error) {
+          console.error(`Error fetching data for ${stat.title}:`, error);
+          return { ...stat, value: 0, details: [] }; // Fallback in case of an error
+        }
+      })
+    );
+    setDashboardStats(updatedStats);
+  };
 
-    fetchData();
-  }, []);
+  // Call fetchDashboardStats on component mount
+  useEffect(() => {
+    fetchDashboardStats();
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   // Handle delete user
   const handleDeleteUser = async (userId) => {
