@@ -7,7 +7,7 @@ const Paintings = () => {
 
   useEffect(() => {
     // Fetch artworks in the "Paintings" category from the backend
-    fetch('http://localhost:8081/api/artworks/category/Paintings')
+    fetch('artsbackend.railway.internal/api/artworks/category/Paintings')
       .then((response) => {
         if (response.ok) {
           return response.json();
