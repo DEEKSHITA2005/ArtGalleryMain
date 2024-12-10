@@ -7,7 +7,7 @@ const ArtworkDetails = () => {
   const [artwork, setArtwork] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8081/api/artworks/${id}`)
+    fetch(`artsbackend.railway.internal/api/artworks/${id}`)
       .then((response) => response.json())
       .then((data) => setArtwork(data))
       .catch((error) => console.error('Error fetching artwork details:', error));
