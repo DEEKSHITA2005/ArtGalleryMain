@@ -8,7 +8,7 @@ const ArtworkCard = ({ id, title, price, artist, onAddToCart }) => {
 
   useEffect(() => {
     // Fetch the image Blob
-    fetch(`http://localhost:8081/api/artworks/${id}/image`)
+    fetch(`artsbackend.railway.internal${id}/image`)
       .then((response) => {
         if (response.ok) return response.blob();
         throw new Error('Failed to fetch image');
