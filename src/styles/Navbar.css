@@ -1,0 +1,220 @@
+/* Navbar styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar:hover {
+  background-color: #f7f7f7; /* Subtle hover effect for the navbar */
+}
+
+/* Navbar Logo */
+.navbar-logo a {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff5a5f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo a:hover {
+  color: #333;
+}
+
+/* Center the search bar */
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding-left: 15px;
+}
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger-icon,
+.user-icon,
+.cart-icon {
+  font-size: 24px;
+  margin-left: 15px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.hamburger-icon:hover,
+.user-icon:hover,
+.cart-icon:hover {
+  color: #ff5a5f;
+}
+
+/* Cart icon container to handle the cart quantity indicator */
+.cart-icon-container {
+  position: relative;
+}
+
+.cart-quantity {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #ff5a5f;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* User dropdown menu */
+.user-dropdown {
+  position: absolute;
+  right: 0;
+  top: 60px; /* Adjusted distance from the icon */
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: none; /* Set to none initially */
+  flex-direction: column;
+  padding: 10px 0;
+  z-index: 1001;
+  min-width: 160px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.user-icon-container:hover .user-dropdown {
+  display: flex; /* Show dropdown on hover */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.user-dropdown p {
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.user-dropdown a {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user-dropdown a:hover {
+  background-color: #ff5a5f;
+  color: #fff;
+}
+
+/* Hamburger dropdown menu */
+.hamburger-dropdown {
+  position: absolute;
+  right: 10px; /* Adjusted right for better positioning */
+  top: 60px; /* Adjusted distance from the icon */
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: none; /* Set to none initially */
+  flex-direction: column;
+  padding: 10px 0;
+  z-index: 1001;
+  min-width: 160px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hamburger-container:hover .hamburger-dropdown {
+  display: flex; /* Show dropdown on hover */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hamburger-dropdown a {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hamburger-dropdown a:hover {
+  background-color: #ff5a5f;
+  color: #fff;
+}
+
+/* Navbar Links */
+.navbar-items {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 80px; /* Adjust to fit below the navbar */
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.navbar-items a {
+  margin: 0 20px;
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.navbar-items a:hover {
+  font-weight: bold;
+  color: #ff5a5f;
+  border-bottom: 2px solid #ff5a5f;
+}
+
+.navbar-items a.active {
+  border-bottom: 2px solid #ff5a5f;
+  font-weight: bold;
+}
+
+/* Add top padding to the content below the fixed navbar items */
+.main-content {
+  padding-top: 130px;
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+  .navbar-center {
+    display: none; /* Hide the search bar on mobile */
+  }
+
+  .navbar-items {
+    flex-direction: column;
+    padding: 20px 0;
+    top: 120px; /* Adjust top based on screen size */
+  }
+
+  .navbar-items a {
+    margin: 10px 0;
+  }
+}
+
+.cart-icon {
+  font-size: 24px;
+  margin-left: 15px; /* Adjusted spacing for better layout with other icons */
+  cursor: pointer;
+}

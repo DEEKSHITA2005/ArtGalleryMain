@@ -1,0 +1,33 @@
+.exhibition-detail-container {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .exhibition-detail {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .exhibition-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .exhibition-info {
+    margin-top: 20px;
+  }
+  
+  .exhibition-info h2 {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  
+  .exhibition-info p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+  }
+  

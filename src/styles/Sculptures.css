@@ -1,0 +1,155 @@
+/* Sculptures Page Container */
+.sculptures-container {
+  padding: 40px;
+  background-color: #f7f7f7;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Page Title */
+.page-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+/* Sculptures Grid */
+.sculptures-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+  gap: 20px;
+  padding: 20px 0;
+  opacity: 0;
+  animation: fadeUp 1s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+/* Sculpture Card */
+.sculpture-card {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  padding: 0; /* Remove padding to fit the image better */
+}
+
+/* Hover Effect for Sculpture Cards */
+.sculpture-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Sculpture Image */
+.sculpture-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the whole card without distortion */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover effect for image zoom */
+.sculpture-card:hover .sculpture-image {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
+/* Sculpture Info (appears on hover) */
+.sculpture-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4); /* Add a background for better readability */
+}
+
+/* Hover effect for info to appear */
+.sculpture-card:hover .sculpture-info {
+  opacity: 1;
+}
+
+/* Sculpture Info Text */
+.sculpture-info h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sculpture-info p {
+  font-size: 14px;
+}
+
+.sculpture-info p:last-child {
+  color: #ff5a5f;
+  font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .sculptures-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .sculptures-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+  }
+
+  .sculpture-info h3 {
+      font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sculptures-grid {
+      grid-template-columns: 1fr; /* 1 item per row */
+  }
+
+  .page-title {
+      font-size: 28px;
+  }
+
+  .sculpture-info h3 {
+      font-size: 14px;
+  }
+}
+
+/* Fade-in and fade-up animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

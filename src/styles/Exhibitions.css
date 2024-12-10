@@ -1,0 +1,108 @@
+/* Exhibitions Page Container */
+.exhibitions-container {
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f7f7f7;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Exhibitions Grid */
+.exhibitions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Exhibition Card */
+.exhibition-card {
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    padding: 20px;
+}
+
+.exhibition-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Exhibition Image */
+.exhibition-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* Exhibition Info */
+.exhibition-info {
+    padding: 10px;
+}
+
+.exhibition-info h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.exhibition-info p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.exhibition-info strong {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .exhibition-card {
+        padding: 15px;
+    }
+
+    .exhibition-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .exhibition-info h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 24px;
+    }
+
+    .exhibition-card {
+        padding: 10px;
+    }
+
+    .exhibition-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .exhibition-info h3 {
+        font-size: 16px;
+    }
+}

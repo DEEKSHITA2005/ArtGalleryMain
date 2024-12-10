@@ -1,0 +1,89 @@
+.product-page {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.product-page-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  gap: 40px;
+}
+
+.product-images {
+  flex: 1;
+}
+
+.thumbnail-images img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.main-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-details h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.product-details .bestseller {
+  color: red;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.product-details .price {
+  font-size: 28px;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.product-details .description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.add-to-bag-button {
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-to-bag-button:hover {
+  background-color: #333;
+}
+
+.additional-details h3 {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.additional-details p {
+  font-size: 14px;
+  color: #555;
+}

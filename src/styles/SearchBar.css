@@ -1,0 +1,123 @@
+/* Main search container */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto; /* Center the container horizontally */
+  overflow: hidden;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Sticky state when scrolled */
+.sticky {
+  position: fixed;
+  top: 10px; /* Stick to the top slightly below */
+  left: 0;
+  right: 0;
+  width: 60%; /* Reduce width when sticky */
+  height: 40px; /* Adjust height for the sticky state */
+  padding: 5px 15px; /* Reduce padding for a smaller search bar */
+  z-index: 1000;
+  background-color: white; /* Ensure background color remains consistent */
+  border-radius: 25px; /* Adjust border-radius to match the reduced height */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+  margin: 0 auto; /* Ensure it remains centered */
+  transition: all 0.3s ease; /* Smooth transition */
+  opacity: 0.95; /* Slight transparency when sticky */
+}
+
+/* Smooth transition for the input and button inside the sticky state */
+.sticky .search-section input {
+  font-size: 12px; /* Smaller font when sticky */
+}
+
+.sticky .search-button {
+  width: 30px; /* Smaller button when sticky */
+  height: 30px;
+}
+
+.search-section {
+  flex: 1;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search-section input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+}
+
+.search-section input::placeholder {
+  color: #999;
+}
+
+.search-button {
+  background-color: #ff5a5f;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  width: 35px; /* Smaller button size when sticky */
+  height: 35px; /* Smaller button size when sticky */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s ease; /* Smooth transition for button size */
+}
+
+.search-button i {
+  font-size: 14px; /* Slightly smaller icon size when sticky */
+}
+
+.search-button:hover {
+  background-color: #e55a5f;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .search-section {
+    width: 100%;
+    padding: 10px 0;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .search-section:last-child {
+    border-bottom: none;
+  }
+
+  .search-button {
+    width: 50px;
+    height: 50px;
+    margin-top: 15px;
+    margin-left: 0;
+  }
+}
+
+/* Further responsiveness for very small screens */
+@media (max-width: 480px) {
+  .sticky {
+    width: 80%; /* Further reduce the width for very small screens */
+    top: 5px;
+  }
+
+  .search-button {
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,137 @@
+/* Paintings Page Container */
+.paintings-container {
+  padding: 40px;
+  background-color: #f7f7f7;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Page Title */
+.paintings-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+/* Artwork grid layout */
+.paintings-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+  gap: 20px;
+  padding: 20px 0;
+  opacity: 0;
+  animation: fadeUp 1s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+/* Artwork Card */
+.artwork-card {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect ratio */
+}
+
+/* Hover Effect for Artwork Card */
+.artwork-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Artwork Image */
+.artwork-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover effect for image zoom */
+.artwork-card:hover .artwork-image {
+  transform: scale(1.05);
+}
+
+/* Artwork Info */
+.artwork-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.artwork-info h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.artwork-info p {
+  font-size: 14px;
+  color: #777;
+}
+
+.artwork-info p.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff5a5f;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .paintings-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .paintings-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .paintings-grid {
+    grid-template-columns: 1fr; /* 1 item per row */
+  }
+
+  .paintings-title {
+    font-size: 28px;
+  }
+}
+
+/* Fade-in and fade-up animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
