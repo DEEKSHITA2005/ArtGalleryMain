@@ -18,7 +18,7 @@ const Cart = ({ cartItems, isAuthenticated, userName, email }) => {
       const imagesMap = {};
       try {
         const imagePromises = cartItems.map(async (item) => {
-          const response = await fetch(`http://localhost:8081/api/artworks/${item.id}/image`);
+          const response = await fetch(`artsbackend.railway.internal/api/artworks/${item.id}/image`);
           if (response.ok) {
             const blob = await response.blob();
             imagesMap[item.id] = URL.createObjectURL(blob);
@@ -69,7 +69,7 @@ const Cart = ({ cartItems, isAuthenticated, userName, email }) => {
       setLoadingOrder(true);
 
       // Save order to the backend
-      await axios.post('http://localhost:8084/api/cart', orderData, {
+      await axios.post('backendart3-production.up.railway.app/api/cart', orderData, {
         headers: {
           'Content-Type': 'application/json',
         },
