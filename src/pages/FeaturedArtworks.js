@@ -7,7 +7,7 @@ const FeaturedArtworks = () => {
 
   useEffect(() => {
     // Fetch digital arts data from the backend
-    fetch('http://localhost:8081/api/artworks/category/Digital Arts')
+    fetch('artsbackend.railway.internal/api/artworks/category/Digital Arts')
       .then((response) => {
         if (response.ok) {
           return response.json();
