@@ -224,7 +224,7 @@ function FormComponent() {
   const handleLogin = () => {
     const loginData = { email: loginEmail, password: loginPassword };
 
-    axios.post('http://localhost:8080/api/users/login', loginData)
+    axios.post('http://artgallerylogin-production.up.railway.app/login', loginData)
       .then(response => {
         const data = response.data;
         localStorage.setItem('token', data.token);
@@ -245,7 +245,7 @@ function FormComponent() {
       role: signupRole,
     };
 
-    axios.post('http://localhost:8080/api/users/signup', signupData)
+    axios.post('http://artgallerylogin-production.up.railway.app/signup', signupData)
       .then(() => {
         localStorage.setItem('email', signupEmail);
         localStorage.setItem('name', signupName);
